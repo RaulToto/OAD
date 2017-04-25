@@ -21,12 +21,13 @@ int main()
     getline(cin,input);//ingresa por teclado
     map<string,int>::iterator p=str_num.begin();//iterator para 
     int k=0;
-    for (int i = 0; i < input.length(); i++)
+    for (int i = 0; i < input.length()+2; i++)
     {
         if(input[i]!=' ')//cuando hay espacio en el strn  de entrada
         {
             str_add.push_back(input[i]);//agraga a str_add
-        
+            if(i==input.length()-1)
+                k=1;
         }
         else
         {
@@ -48,8 +49,7 @@ int main()
             }
             str_add.clear();//limpia str add 
             k=0;//incializa con k con 0
-        }
-            
+        }    
     }
    //imprime los asteriscos
     map<string,int>::iterator p1=str_num.begin();//inicaliza iterator p1 con begin
