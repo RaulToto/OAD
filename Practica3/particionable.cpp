@@ -67,9 +67,9 @@ void particionable(vector<int> &vec)
         }
     }
     //imprime los dos vectores
-    cout << "print vector elements vector 1" << endl;
+    cout << "elements vector 1" << endl;
     for(int i=0;i<vec1.size();i++){cout << vec1[i] << endl;}
-    cout << "print vector elements vector 2" << endl;    
+    cout << "elements vector 2" << endl;    
     for(int i=0;i<vec2.size();i++){cout << vec2[i] << endl;}
     
 }
