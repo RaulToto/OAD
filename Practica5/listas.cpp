@@ -77,6 +77,7 @@ int sumElements(Celda *lista)
     else
         return lista->valor+sumElements(lista->next);
 }
+//retorna el ultimo elemento
 Celda* ultimoElemento(Celda *lista)
 {
     if(lista!=NULL)
@@ -89,6 +90,7 @@ Celda* ultimoElemento(Celda *lista)
     else
         cout << "no haya elementos en la lista" << endl;
 }
+//concatena dos listas
 Celda* concatena(Celda*& uno,Celda *dos )
 {
     Celda *list=NULL;
@@ -118,6 +120,7 @@ Celda* concatena(Celda*& uno,Celda *dos )
         return list;
     }
 }
+//imprimir lista al reves
 void ReversePrint(Celda *lista) {
     if(lista == NULL) return;
     ReversePrint(lista->next);
