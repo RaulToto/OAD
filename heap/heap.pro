@@ -1,0 +1,16 @@
+QT += core
+QT -= gui
+
+CONFIG += c++11
+
+TARGET = heap
+CONFIG += console
+CONFIG -= app_bundle
+
+TEMPLATE = app
+
+SOURCES += main.cpp \
+    heap.cpp
+
+HEADERS += \
+    heap.h
