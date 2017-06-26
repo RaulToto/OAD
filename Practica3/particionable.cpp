@@ -42,6 +42,10 @@ void particionable(vector<int> &vec)
     big=mayor(vec);//calculamos el mayor de los elementos
     if(big>(total/2))//en el caso de que el mayor numero de la lista se mayor que el total/2 no habria solucion
         cout << "no hay solucion para el problema" << endl;
+    else if(big==(total/2))
+    {
+        cout << "si son particionables" << endl;
+    }
     else //en otro caso 
     {   
         vec1.push_back(big);//agregamos el mas grande al vector 1

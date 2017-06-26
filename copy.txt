@@ -1,0 +1,4 @@
+//hola mundo
+/*hello world
+this program is write in c++*/
+good bye

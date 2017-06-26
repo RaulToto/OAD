@@ -9,8 +9,10 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    tree.cpp
 
 HEADERS += \
     tree.h \
-    node.h
+    node.h \
+    linkedlist.h

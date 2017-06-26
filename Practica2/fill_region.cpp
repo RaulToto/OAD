@@ -38,7 +38,7 @@ string update(string str)
                 i++;
             while(str[i]=='-')
             {
-                str[i]='+';
+                str[i]='*';
                 i++;
               
             }

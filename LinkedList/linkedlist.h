@@ -27,7 +27,6 @@ public:
     void reorganizar();
     int contarDuplicado();
 
-
     //LinkedList concatenate(LinkedList ,LinkedList);
 
 private:

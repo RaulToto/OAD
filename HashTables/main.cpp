@@ -1,8 +1,18 @@
-#include <QCoreApplication>
-
-int main(int argc, char *argv[])
+#include <iostream>
+#include <linkedlist.h>
+using namespace std;
+int main()
 {
-    QCoreApplication a(argc, argv);
+    HashMap hash;
+    //hash.mostrar();
+    hash.put(2,3);
+    hash.put(2,5);
+    hash.put(2,4);
+    hash.put(2,6);
+    hash.put(2,6);
 
-    return a.exec();
+    hash.put(130,4);
+    cout << hash << endl;
+    hash.remove(2);
+    cout << hash << endl;
 }

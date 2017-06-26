@@ -1,8 +1,9 @@
-#include <QCoreApplication>
-
-int main(int argc, char *argv[])
+#include <iostream>
+#include <NTL/ZZ.h>
+using namespace std;
+using namespace NTL;
+int main()
 {
-    QCoreApplication a(argc, argv);
-
-    return a.exec();
+    ZZ a , b;
+    a=4;
 }

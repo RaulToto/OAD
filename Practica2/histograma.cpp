@@ -33,7 +33,6 @@ int main()
         {
             k=1;//si hay espacio inicializa k=1
         }
-
         //cout << str_add << endl;
         while(k==1)//si k==1
         {

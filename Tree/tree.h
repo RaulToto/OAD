@@ -1,16 +1,21 @@
 /*//////////////////////////////////////////////////////
-///  *@file Node.h                                   ///
+///  *@file Tree.h                                   ///
 ///   * @version 1.0                                 ///
 ///    * @date 15/06/2017                            ///
 ///     * @author Raul Edgar Quispe Totocayo         ///
 ///                                                  ///
-///       * @brief this program using the libntl     ///
+///       * @                                        ///
 //////////////////////////////////////////////////////*/
 
 #ifndef TREE_H
 #define TREE_H
 #include <iostream>
 #include <node.h>
+#include <unordered_map>
+#include <vector>
+#include <algorithm>
+#include <type_traits>
+#include <linkedlist.h>
 using namespace std;
 template<typename T>
 
@@ -19,52 +24,48 @@ class Tree
 public:
     Tree()
         :rootPtr(nullptr){}
-    void insertNode(T &val)
+    void insertNode(T val)
     {
         insertNodeHelper(&rootPtr,val);
     }
-
-    friend std::ostream& operator <<(std::ostream &out,Tree<T> &tre)
+    //recorridos del arble
+    void preOrderTraversal()
     {
-        out << tre.rootPtr->getData()<< endl;
-        Node<T> *temPtr=tre.rootPtr;
-        temPtr=temPtr->getReightPtr();
+        preOrderHelper(rootPtr);
+    }
+    void inOrderTraversal()
+    {
+        inOrderHelper(rootPtr);
+    }
+    void postOrderTraversal()
+    {
+        postOrderHelper(rootPtr);
+    }
+    void printNivelByNivel()
+    {
+        printHelper(rootPtr);
+    }
+    bool getVal(T & val)
+    {
+        getValHelper(&rootPtr,val);
+    }
 
-        cout << temPtr->getData()<< endl;
+    friend std::ostream& operator <<(std::ostream &out,Tree<T> *tre)
+    {
+        Node<T> *temPtr=tre->rootPtr;
+        out << temPtr->getReightPtr()->getData();
 
-        //Node<T> *temLeftPtr=tre.rootPtr->leftPtr;
-        //Node<T> *temReightPtr=tre.rootPtr->reightPtr;
-        /*while((temLeftPtr != nullptr )or (temReightPtr != nullptr) )
-        {
-            cout << temLeftPtr->data << "---" << temReightPtr->data << endl;
-            temLeftPtr=temLeftPtr->leftPtr;
-            temReightPtr=temReightPtr->reightPtr;
-        }*/
+        return out;
     }
 private:
     Node<T> *rootPtr;
-    void insertNodeHelper(Node<T> **ptr,T &val)
-    {
-        if(*ptr==nullptr)
-        {
-            *ptr=new Node<T>(val);
-        }
-        else
-        {
-            if(val<(*ptr)->data)
-            {
-                insertNodeHelper(&((*ptr)->leftPtr),val);
-            }
+    void insertNodeHelper(Node<T> **,T &);
+    void preOrderHelper(Node<T> *);
+    void inOrderHelper(Node<T> *);
+    void postOrderHelper(Node<T> *);
+    bool getValHelper(Node<T> **,T &);
+    void printHelper(Node<T>*);
 
-            else
-            {
-                if(val>(*ptr)->data)
-                    insertNodeHelper(&((*ptr)->reightPtr),val);
-                else
-                    cout << "nub" << endl;
-            }
-        }
-    }
 };
 
 #endif // TREE_H
