@@ -32,5 +32,6 @@ int main()
     //cout << "postOrder " << endl;
     tree->postOrderTraversal();
     tree->printNivelByNivel();
+    tree->lenght();
     //cout <<tre ;
 }

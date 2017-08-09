@@ -24,6 +24,15 @@ class Tree
 public:
     Tree()
         :rootPtr(nullptr){}
+
+    ~Tree()
+    {
+        if(rootPtr==nullptr)
+            return;
+        remove(rootPtr);
+
+    }
+    void remove(Node<T>* );
     void insertNode(T val)
     {
         insertNodeHelper(&rootPtr,val);
@@ -39,12 +48,17 @@ public:
     }
     void postOrderTraversal()
     {
-        postOrderHelper(rootPtr);
+        postOrderHelper(rootPtr,0);
     }
     void printNivelByNivel()
     {
         printHelper(rootPtr);
     }
+    void lenght()
+    {
+        lenghtHelper(rootPtr);
+    }
+
     bool getVal(T & val)
     {
         getValHelper(&rootPtr,val);
@@ -62,10 +76,10 @@ private:
     void insertNodeHelper(Node<T> **,T &);
     void preOrderHelper(Node<T> *);
     void inOrderHelper(Node<T> *);
-    void postOrderHelper(Node<T> *);
+    void postOrderHelper(Node<T> *,int );
     bool getValHelper(Node<T> **,T &);
     void printHelper(Node<T>*);
-
+    void lenghtHelper(Node<T>*);
 };
 
 #endif // TREE_H

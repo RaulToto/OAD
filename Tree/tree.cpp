@@ -12,6 +12,20 @@
 #include "node.h"
 
 template<typename T>
+void Tree<T>::remove(Node<T> *ptr)
+{
+    if(ptr == NULL)
+        return;	// Nothing to do
+
+    Node<T>* left = ptr->leftPtr;
+    Node<T>* right = ptr->reightPtr;
+
+    delete ptr;
+    remove(left);
+    remove(right);
+
+}
+template<typename T>
 void Tree<T>::insertNodeHelper(Node<T> **ptr, T &val)
 {
     if(*ptr==nullptr)
@@ -56,13 +70,15 @@ void Tree<T>::inOrderHelper(Node<T> *ptr)
     }
 }
 template<typename T>
-void Tree<T>::postOrderHelper(Node<T> *ptr)
+void Tree<T>::postOrderHelper(Node<T> *ptr,int i)
 {
     if(ptr)
     {
-        postOrderHelper(ptr->leftPtr);
-        postOrderHelper(ptr->reightPtr);
-        std::cout <<ptr->getData() << std::endl;
+        i++;
+        postOrderHelper(ptr->leftPtr,i);
+        postOrderHelper(ptr->reightPtr,i);
+        std::cout <<"dato--> "<< ptr->getData() << " Nivel --> " << i<< std::endl;
+
     }
 
 }
@@ -93,12 +109,37 @@ void Tree<T>::printHelper(Node<T> *ptr)
     printBinaryTree (ptr, m, 0);
     for ( auto& i : m )
     {
-      std::cout << " Level " << i.first << ": ";
+      std::cout << "Nivel " << i.first << ": ";
       for ( auto& j : i.second )
         std::cout << j->data << "  ";
     }
     std::cout << std::endl;
+}
+/*
+template<typename T>
+void Tree<T>::printHelper(Node<T> *ptr)
+{
+    LinkedList *ptr1=ptr;
+    LinkedList *ptr2=ptr;
+    while((ptr1 or ptr2)!=nullptr)
+    {
 
+    }
+}*/
+template<typename T>
+void Tree<T>::lenghtHelper(Node<T> *ptr)
+{
+    int lenght=0;
+    std::unordered_map<int, std::vector<Node<T>*> > m;
+    printBinaryTree (ptr, m, 0);
+    for ( auto& i : m )
+    {
+        lenght++;
+      for ( auto& j : i.second ){}
+        //std::cout << j->data << "  ";
+    }
+    //std::cout << std::endl;
+    std::cout << lenght << std::endl;
 }
 // print a binary tree level by level
 template <typename T>

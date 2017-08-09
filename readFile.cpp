@@ -39,7 +39,7 @@ int main()
         {
             getline(archivoEntrada,frase);
             lineCount++;
-  //          cout << "linea 1" << wordCount(frase);
+            cout << frase;
             wordC+=wordCount(frase);
             charC+=frase.length();
         }
